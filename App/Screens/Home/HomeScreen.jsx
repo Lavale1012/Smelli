@@ -103,9 +103,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: "row",
     flexWrap: "wrap",
+    marginHorizontal: 6,
     justifyContent: "space-between",
   },
   gridItem: {
-    width: "49%", // Adjust to fit two items per row with spacing
+    width: "50%", // Adjust to fit two items per row with spacing
   },
 });
