@@ -3,7 +3,7 @@ import React from "react";
 
 const ChatScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>chatScreen</Text>
     </View>
   );
@@ -11,4 +11,9 @@ const ChatScreen = () => {
 
 export default ChatScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#FDFBD4",
+    height: "100%",
+  },
+});

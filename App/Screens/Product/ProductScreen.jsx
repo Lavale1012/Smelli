@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
+import BackButton from "../../components/BackButton";
 
 const screenHeight = Dimensions.get("window").height;
 
@@ -15,6 +16,10 @@ export default function ProductScreen({ route }) {
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <View style={styles.backBttnCOntainer}>
+        <BackButton />
+      </View>
+
       <View style={styles.imageContainer}>
         <Image source={{ uri: products.image }} style={styles.image} />
       </View>
@@ -23,6 +28,7 @@ export default function ProductScreen({ route }) {
         <View>
           <Text style={styles.title}>{products.title}</Text>
           <Text style={styles.brand}>{products.brand}</Text>
+          <Text style={styles.brand}>{products.consintation}</Text>
         </View>
         <View style={styles.priceContainer}>
           <Text style={styles.price}>${products.price}</Text>
@@ -30,9 +36,21 @@ export default function ProductScreen({ route }) {
       </View>
 
       <View style={styles.descriptionWrapper}>
+        <Text style={styles.descriptionTitle}>Description</Text>
         <ScrollView style={styles.descriptionScroll}>
           <Text style={styles.description}>{products.description}</Text>
         </ScrollView>
+      </View>
+
+      <View style={styles.notesContainer}>
+        <Text style={styles.notesTitle}>Notes</Text>
+        <Text style={styles.notesText}>Top: {products.Notes.top}</Text>
+        <Text style={styles.notesText}>Middle: {products.Notes.middle}</Text>
+        <Text style={styles.notesText}>Base: {products.Notes.base}</Text>
+      </View>
+      <View style={styles.descriptionWrapper}>
+        <Text style={styles.descriptionTitle}>Season</Text>
+        <Text style={styles.description}>{products.season}</Text>
       </View>
 
       <TouchableOpacity style={styles.buttonWrapper}>
@@ -46,6 +64,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FDFBD4",
+    height: "100%",
   },
   content: {
     alignItems: "center",
@@ -95,6 +114,7 @@ const styles = StyleSheet.create({
     maxHeight: screenHeight * 0.25,
     marginTop: 20,
     backgroundColor: "#F3F1D4",
+
     padding: 10,
     borderRadius: 10,
   },
@@ -106,6 +126,12 @@ const styles = StyleSheet.create({
     fontFamily: "SourceSerif3",
     lineHeight: 22,
     color: "#333",
+  },
+  descriptionTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    fontFamily: "SourceSerif3",
+    marginBottom: 10,
   },
   buttonWrapper: {
     marginTop: 30,
@@ -121,5 +147,28 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "SourceSerif3",
     overflow: "hidden",
+  },
+  backBttnCOntainer: {
+    flex: 1,
+    alignSelf: "flex-start",
+    paddingLeft: 15,
+  },
+  notesContainer: {
+    width: "90%",
+    marginTop: 20,
+    backgroundColor: "#F3F1D4",
+    padding: 10,
+    borderRadius: 10,
+  },
+  notesTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    fontFamily: "SourceSerif3",
+    marginBottom: 10,
+  },
+  notesText: {
+    fontSize: 16,
+    fontFamily: "SourceSerif3",
+    marginBottom: 5,
   },
 });

@@ -3,7 +3,7 @@ import React from "react";
 
 const DiscoverScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>discoverScreen</Text>
     </View>
   );
@@ -11,4 +11,9 @@ const DiscoverScreen = () => {
 
 export default DiscoverScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#FDFBD4",
+    height: "100%",
+  },
+});

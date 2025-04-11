@@ -15,6 +15,13 @@ const HomeScreen = () => {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
       brand: "Chanel",
+      Notes: {
+        top: "Citrus",
+        middle: "Floral",
+        base: "Woody",
+      },
+      consintation: "EPT",
+      season: "Spring, Summer",
     },
     {
       image:
@@ -23,6 +30,13 @@ const HomeScreen = () => {
       price: 89.99,
       description: "A refreshing and vibrant scent perfect for everyday wear.",
       brand: "Chanel",
+      Notes: {
+        top: "Citrus",
+        middle: "Floral",
+        base: "Woody",
+      },
+      consintation: "EPT",
+      season: "Spring, Summer",
     },
     {
       image:
@@ -31,6 +45,13 @@ const HomeScreen = () => {
       price: 79.99,
       description: "A bold and spicy fragrance for special occasions.",
       brand: "Chanel",
+      Notes: {
+        top: "Citrus",
+        middle: "Floral",
+        base: "Woody",
+      },
+      consintation: "EPT",
+      season: "Spring, Summer",
     },
     {
       image:
@@ -39,6 +60,13 @@ const HomeScreen = () => {
       price: 69.99,
       description: "A light and airy scent with hints of citrus and vanilla.",
       brand: "Chanel",
+      Notes: {
+        top: "Citrus",
+        middle: "Floral",
+        base: "Woody",
+      },
+      consintation: "EPT",
+      season: "Spring, Summer",
     },
   ];
 
