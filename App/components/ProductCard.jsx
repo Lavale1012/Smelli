@@ -11,9 +11,9 @@ const ProductCard = ({ products }) => {
 
   return (
     <TouchableOpacity style={styles.card} onPress={handlePress}>
-      <Image source={{ uri: products.image }} style={styles.image} />
+      <Image source={{ uri: products.imagesUrl.image1 }} style={styles.image} />
       <View style={styles.details}>
-        <Text style={styles.title}>{products.title}</Text>
+        <Text style={styles.title}>{products.name}</Text>
         <Text style={styles.price}>${products.price}</Text>
       </View>
     </TouchableOpacity>
@@ -33,22 +33,22 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 140,
+    height: 140,
     borderRadius: 8,
   },
   details: {
     padding: 10,
   },
   title: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: "bold",
     marginBottom: 5,
+    fontFamily: "SourceSerif3",
   },
   price: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "green",
   },
 });
 

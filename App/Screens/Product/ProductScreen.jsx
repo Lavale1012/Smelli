@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Dimensions,
+  Linking,
 } from "react-native";
 import BackButton from "../../components/BackButton";
 
@@ -21,17 +22,22 @@ export default function ProductScreen({ route }) {
       </View>
 
       <View style={styles.imageContainer}>
-        <Image source={{ uri: products.image }} style={styles.image} />
+        <Image
+          source={{ uri: products.imagesUrl.image1 }}
+          style={styles.image}
+        />
       </View>
 
       <View style={styles.detailContainer}>
         <View>
-          <Text style={styles.title}>{products.title}</Text>
+          <Text style={styles.name}>{products.name}</Text>
           <Text style={styles.brand}>{products.brand}</Text>
-          <Text style={styles.brand}>{products.consintation}</Text>
+          <Text style={styles.brand}>{products.gender}</Text>
+          <Text style={styles.brand}>{products.concentration}</Text>
         </View>
         <View style={styles.priceContainer}>
           <Text style={styles.price}>${products.price}</Text>
+          <Text style={styles.brand}>{products.size}</Text>
         </View>
       </View>
 
@@ -44,16 +50,32 @@ export default function ProductScreen({ route }) {
 
       <View style={styles.notesContainer}>
         <Text style={styles.notesTitle}>Notes</Text>
-        <Text style={styles.notesText}>Top: {products.Notes.top}</Text>
-        <Text style={styles.notesText}>Middle: {products.Notes.middle}</Text>
-        <Text style={styles.notesText}>Base: {products.Notes.base}</Text>
+        <Text style={styles.notesText}>
+          Top: {products.notes?.top?.join(", ") || "N/A"}
+        </Text>
+        <Text style={styles.notesText}>
+          Middle: {products.notes?.middle?.join(", ") || "N/A"}
+        </Text>
+        <Text style={styles.notesText}>
+          Base: {products.notes?.base?.join(", ") || "N/A"}
+        </Text>
       </View>
       <View style={styles.descriptionWrapper}>
         <Text style={styles.descriptionTitle}>Season</Text>
-        <Text style={styles.description}>{products.season}</Text>
+        <Text style={styles.description}>{products.season.join(", ")}</Text>
       </View>
 
-      <TouchableOpacity style={styles.buttonWrapper}>
+      <TouchableOpacity
+        style={styles.buttonWrapper}
+        onPress={() => {
+          const url = products.purchaseLink;
+          if (url) {
+            Linking.openURL(url).catch((err) =>
+              console.error("Failed to open URL:", err)
+            );
+          }
+        }}
+      >
         <Text style={styles.button}>Buy Now</Text>
       </TouchableOpacity>
     </ScrollView>
@@ -68,11 +90,11 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: "center",
-    paddingBottom: 40,
+    paddingBottom: 100,
   },
   imageContainer: {
     marginTop: 20,
-    marginBottom: 10,
+
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
@@ -88,7 +110,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     width: "90%",
-    marginTop: 25,
+    marginTop: 20,
     marginBottom: 10,
   },
   title: {
@@ -97,12 +119,17 @@ const styles = StyleSheet.create({
     fontFamily: "SourceSerif3",
   },
   brand: {
-    fontSize: 18,
+    fontSize: 14,
     fontStyle: "italic",
     fontFamily: "SourceSerif3",
   },
+  name: {
+    fontSize: 25,
+    fontWeight: "bold",
+    fontFamily: "SourceSerif3",
+  },
   priceContainer: {
-    justifyContent: "center",
+    // justifyContent: "center",
   },
   price: {
     fontSize: 25,
