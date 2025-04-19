@@ -3,15 +3,57 @@ import React from "react";
 import SearchBar from "../../components/SearchBar";
 import DiscoverTab from "../../components/DiscoverTab";
 
+export const brands = [
+  {
+    id: 0,
+    name: "Show All",
+    image: require("../../../assets/ShowAll.png"),
+    color: "",
+  },
+  {
+    id: 1,
+    name: "Dior",
+    image: require("../../../assets/dior.png"),
+    color: "#ffffff",
+    subColor: "##ECECEC",
+  },
+  {
+    id: 2,
+    name: "Tom Ford",
+    image: require("../../../assets/tomford.png"),
+    color: "#ffffff",
+    subColor: "#ECECEC",
+  },
+  {
+    id: 3,
+    name: "Chanel",
+    image: require("../../../assets/chanel.jpg"),
+    color: "#ffffff",
+    subColor: "##ECECEC",
+  },
+  {
+    id: 4,
+    name: "Azzaro",
+    image: require("../../../assets/azzaro.jpg"),
+    color: "#ffffff",
+    subColor: "##ECECEC",
+  },
+  {
+    id: 5,
+    name: "Givenchy",
+    image: require("../../../assets/givenchy.jpg"),
+    color: "#ffffff",
+    subColor: "##ECECEC",
+  },
+  {
+    id: 6,
+    name: "Gucci",
+    image: require("../../../assets/gucci.jpg"),
+    color: "#000000",
+    subColor: "#616569",
+  },
+];
 const DiscoverScreen = () => {
-  const brands = [
-    { id: 1, name: "Dior", image: require("../../../assets/dior.png") },
-    { id: 2, name: "Tom Ford", image: require("../../../assets/tomford.png") },
-    { id: 3, name: "Chanel", image: require("../../../assets/chanel.jpg") },
-    { id: 4, name: "Azzaro", image: require("../../../assets/azzaro.jpg") },
-    { id: 5, name: "Givenchy", image: require("../../../assets/givenchy.jpg") },
-    { id: 6, name: "Gucci", image: require("../../../assets/gucci.jpg") },
-  ];
   return (
     <ScrollView style={styles.container}>
       <View style={styles.searchWrapper}>

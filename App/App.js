@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import * as Font from "expo-font";
 import Login from "./Screens/Login/LoginScreen";
 import TabNavigator from "./navigation/TabNavigator";
+import DiscBrandScreen from "./Screens/DiscBrandScreen/DiscBrandScreen";
+import DiscProductScreen from "./Screens/Product-discover/DiscProductScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +47,54 @@ export default function App() {
         <Stack.Screen
           name="MainTabs"
           component={TabNavigator}
+          options={{
+            headerStyle: {
+              backgroundColor: "#FDFBD4",
+            },
+            headerTitle: "",
+            headerLeft: () => (
+              <View style={{ paddingLeft: 2, paddingTop: 10 }}>
+                <Text
+                  style={{
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    fontFamily: "SourceSerif3",
+                  }}
+                >
+                  Smelli
+                </Text>
+              </View>
+            ),
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="DiscBrandScreen"
+          component={DiscBrandScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#FDFBD4",
+            },
+            headerTitle: "",
+            headerLeft: () => (
+              <View style={{ paddingLeft: 2, paddingTop: 10 }}>
+                <Text
+                  style={{
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    fontFamily: "SourceSerif3",
+                  }}
+                >
+                  Smelli
+                </Text>
+              </View>
+            ),
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="DiscProductScreen"
+          component={DiscProductScreen}
           options={{
             headerStyle: {
               backgroundColor: "#FDFBD4",

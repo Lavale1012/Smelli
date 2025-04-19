@@ -2,15 +2,19 @@ import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const ProductCard = ({ products }) => {
+const DiscProductCard = ({ products, brand }) => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate("ProductScreen", { products }); // ✅ pass full product to screen
+    console.log("Navigating with brand:", brand);
+    navigation.navigate("DiscProductScreen", { products, brand }); // ✅ pass full product to screen
   };
 
   return (
-    <TouchableOpacity style={styles.card} onPress={handlePress}>
+    <TouchableOpacity
+      style={[{ backgroundColor: brand?.color || "#D9D7B6" }, styles.card]}
+      onPress={handlePress}
+    >
       <Image source={{ uri: products.imagesUrl.image1 }} style={styles.image} />
       <View style={styles.details}>
         <Text style={styles.title}>{products.name}</Text>
@@ -22,7 +26,7 @@ const ProductCard = ({ products }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#D9D7B6",
+    // backgroundColor: "#D9D7B6",
     padding: 12,
     borderRadius: 20,
     margin: 10,
@@ -53,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProductCard;
+export default DiscProductCard;
