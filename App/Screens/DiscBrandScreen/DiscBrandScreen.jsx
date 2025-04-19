@@ -11,6 +11,7 @@ import SearchBar from "../../components/SearchBar";
 import ProductCard from "../../components/ProductCard";
 import DiscProductCard from "../../components/DiscProductCard";
 import { fetchData } from "../../utils/fetchData";
+import BackButton from "../../components/BackButton";
 
 const DiscBrandScreen = ({ route }) => {
   const { brand } = route.params || {};
@@ -35,9 +36,10 @@ const DiscBrandScreen = ({ route }) => {
 
   return (
     <View style={{ flex: 1, backgroundColor: brand?.color || "#FDFBD4" }}>
+      <BackButton />
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.searchWrapper}>
-          <SearchBar />
+          <SearchBar brand={brand} />
 
           <Text style={styles.brandTitle}>{brand?.name}</Text>
 

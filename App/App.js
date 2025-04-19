@@ -71,49 +71,57 @@ export default function App() {
         <Stack.Screen
           name="DiscBrandScreen"
           component={DiscBrandScreen}
-          options={{
-            headerStyle: {
-              backgroundColor: "#FDFBD4",
-            },
-            headerTitle: "",
-            headerLeft: () => (
-              <View style={{ paddingLeft: 2, paddingTop: 10 }}>
-                <Text
-                  style={{
-                    fontSize: 25,
-                    fontWeight: "bold",
-                    fontFamily: "SourceSerif3",
-                  }}
-                >
-                  Smelli
-                </Text>
-              </View>
-            ),
-            headerShadowVisible: false,
+          options={({ route }) => {
+            const brandColor = route.params?.brand?.color || "#FDFBD4";
+
+            return {
+              headerStyle: {
+                backgroundColor: brandColor,
+              },
+              headerTitle: "",
+              headerLeft: () => (
+                <View style={{ paddingLeft: 2, paddingTop: 10 }}>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      fontWeight: "bold",
+                      fontFamily: "SourceSerif3",
+                    }}
+                  >
+                    Smelli
+                  </Text>
+                </View>
+              ),
+              headerShadowVisible: false,
+            };
           }}
         />
         <Stack.Screen
           name="DiscProductScreen"
           component={DiscProductScreen}
-          options={{
-            headerStyle: {
-              backgroundColor: "#FDFBD4",
-            },
-            headerTitle: "",
-            headerLeft: () => (
-              <View style={{ paddingLeft: 2, paddingTop: 10 }}>
-                <Text
-                  style={{
-                    fontSize: 25,
-                    fontWeight: "bold",
-                    fontFamily: "SourceSerif3",
-                  }}
-                >
-                  Smelli
-                </Text>
-              </View>
-            ),
-            headerShadowVisible: false,
+          options={({ route }) => {
+            const brandColor = route.params?.brand?.color || "#FDFBD4";
+
+            return {
+              headerStyle: {
+                backgroundColor: brandColor,
+              },
+              headerTitle: "",
+              headerLeft: () => (
+                <View style={{ paddingLeft: 2, paddingTop: 10 }}>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      fontWeight: "bold",
+                      fontFamily: "SourceSerif3",
+                    }}
+                  >
+                    Smelli
+                  </Text>
+                </View>
+              ),
+              headerShadowVisible: false,
+            };
           }}
         />
       </Stack.Navigator>

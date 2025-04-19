@@ -15,7 +15,7 @@ export const brands = [
     name: "Dior",
     image: require("../../../assets/dior.png"),
     color: "#ffffff",
-    subColor: "##ECECEC",
+    subColor: "#ECECEC",
   },
   {
     id: 2,
@@ -29,21 +29,21 @@ export const brands = [
     name: "Chanel",
     image: require("../../../assets/chanel.jpg"),
     color: "#ffffff",
-    subColor: "##ECECEC",
+    subColor: "#ECECEC",
   },
   {
     id: 4,
     name: "Azzaro",
     image: require("../../../assets/azzaro.jpg"),
     color: "#ffffff",
-    subColor: "##ECECEC",
+    subColor: "#ECECEC",
   },
   {
     id: 5,
     name: "Givenchy",
     image: require("../../../assets/givenchy.jpg"),
     color: "#ffffff",
-    subColor: "##ECECEC",
+    subColor: "#ECECEC",
   },
   {
     id: 6,

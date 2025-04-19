@@ -1,11 +1,14 @@
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import React from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ brand }) => {
   return (
     <View>
       <TextInput
-        style={styles.input}
+        style={[
+          { backgroundColor: brand?.subColor || "#D9D7B6" },
+          styles.input,
+        ]}
         placeholder="Search"
         autoCapitalize="none"
       />
@@ -18,7 +21,7 @@ export default SearchBar;
 const styles = StyleSheet.create({
   input: {
     borderColor: "#aaa",
-    backgroundColor: "#D9D7B6",
+    // backgroundColor: "#D9D7B6",
     borderRadius: 8,
     padding: 12,
     width: 370,
