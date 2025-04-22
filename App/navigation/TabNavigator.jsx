@@ -8,6 +8,7 @@ import ChatScreen from "../Screens/chat/ChatScreen";
 import ProductScreen from "../Screens/Product/ProductScreen";
 import DiscBrandScreen from "../Screens/DiscBrandScreen/DiscBrandScreen";
 import DiscProductScreen from "../Screens/Product-discover/DiscProductScreen";
+import SettingsScreen from "../Screens/Settings/SettingsScreen";
 import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
@@ -19,6 +20,7 @@ function HomeStackScreen() {
       <HomeStack.Screen name="HomeMain" component={HomeScreen} />
       <HomeStack.Screen name="ProductScreen" component={ProductScreen} />
       <HomeStack.Screen name="DiscBrandScreen" component={DiscBrandScreen} />
+      <HomeStack.Screen name="SettingsScreen" component={SettingsScreen} />
     </HomeStack.Navigator>
   );
 }

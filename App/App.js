@@ -7,7 +7,9 @@ import Login from "./Screens/Login/LoginScreen";
 import TabNavigator from "./navigation/TabNavigator";
 import DiscBrandScreen from "./Screens/DiscBrandScreen/DiscBrandScreen";
 import DiscProductScreen from "./Screens/Product-discover/DiscProductScreen";
-
+import SettingsIcon from "./components/SettingsIcon";
+import SettingsScreen from "./Screens/Settings/SettingsScreen";
+``;
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -65,6 +67,19 @@ export default function App() {
                 </Text>
               </View>
             ),
+            headerRight: () => (
+              <View style={{ paddingRight: 10, paddingTop: 10 }}>
+                <Text
+                  style={{
+                    fontSize: 25,
+                    fontWeight: "bold",
+                    fontFamily: "SourceSerif3",
+                  }}
+                >
+                  <SettingsIcon />
+                </Text>
+              </View>
+            ),
             headerShadowVisible: false,
           }}
         />
@@ -89,6 +104,19 @@ export default function App() {
                     }}
                   >
                     Smelli
+                  </Text>
+                </View>
+              ),
+              headerRight: () => (
+                <View style={{ paddingRight: 10, paddingTop: 10 }}>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      fontWeight: "bold",
+                      fontFamily: "SourceSerif3",
+                    }}
+                  >
+                    <SettingsIcon />
                   </Text>
                 </View>
               ),
@@ -117,6 +145,34 @@ export default function App() {
                     }}
                   >
                     Smelli
+                  </Text>
+                </View>
+              ),
+              headerShadowVisible: false,
+            };
+          }}
+        />
+        <Stack.Screen
+          name="SettingsScreen"
+          component={SettingsScreen}
+          options={({ route }) => {
+            const brandColor = route.params?.brand?.color || "#FDFBD4";
+
+            return {
+              headerStyle: {
+                backgroundColor: brandColor,
+              },
+              headerTitle: "",
+              headerLeft: () => (
+                <View style={{ paddingLeft: 2, paddingTop: 10 }}>
+                  <Text
+                    style={{
+                      fontSize: 25,
+                      fontWeight: "bold",
+                      fontFamily: "SourceSerif3",
+                    }}
+                  >
+                    Settings
                   </Text>
                 </View>
               ),

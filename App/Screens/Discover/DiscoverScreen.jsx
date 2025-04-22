@@ -1,8 +1,19 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+} from "react-native";
 import React from "react";
 import SearchBar from "../../components/SearchBar";
 import DiscoverTab from "../../components/DiscoverTab";
+import DiscCarousel from "../../components/DiscCarousel";
+import { useEffect, useState } from "react";
+import { fetchData } from "../../utils/fetchData";
 
+const limit = 19;
+const URL = `https://fragrance-search-api.onrender.com/api/fragrances?limit=${limit}`;
 export const brands = [
   {
     id: 0,
@@ -54,10 +65,36 @@ export const brands = [
   },
 ];
 const DiscoverScreen = () => {
+  const [images, setImages] = useState([]);
+  const [isLoading, setIsLoading] = useState();
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        setImages([]);
+        setIsLoading(true);
+        const response = await fetchData(URL);
+        const images = response.map((response) => response.imagesUrl.image2);
+        setImages(images);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+    fetchImages();
+  }, []);
   return (
     <ScrollView style={styles.container}>
       <View style={styles.searchWrapper}>
         <SearchBar />
+      </View>
+      <View style={styles.CaraselContainer}>
+        <DiscCarousel images={images} />
+        {isLoading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#333" />
+          </View>
+        ) : null}
       </View>
       <View>
         <Text style={styles.contentTitle}>Brands</Text>
@@ -96,5 +133,21 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "space-between",
     paddingHorizontal: 20,
+    marginBottom: 100,
+  },
+  CaraselContainer: {
+    marginTop: 20,
+    paddingHorizontal: 20,
+    backgroundColor: "#FDFBD4",
+  },
+  loadingContainer: {
+    position: "absolute",
+    top: "23%",
+    left: "45%",
+    padding: 20,
+    fontSize: 18,
+    alignItems: "center", // Center the text horizontally
+    marginTop: "20%", // Center the text vertically
+    justifyContent: "center",
   },
 });
