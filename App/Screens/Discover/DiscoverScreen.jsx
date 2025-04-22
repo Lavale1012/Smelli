@@ -20,6 +20,7 @@ export const brands = [
     name: "Show All",
     image: require("../../../assets/ShowAll.png"),
     color: "",
+    subColor: "",
   },
   {
     id: 1,

@@ -9,12 +9,13 @@ import {
   Linking,
 } from "react-native";
 import BackButton from "../../components/BackButton";
+import ProductCarousel from "../../components/ProductCarousel";
 
 const screenHeight = Dimensions.get("window").height;
 
 export default function ProductScreen({ route }) {
   const { products } = route.params;
-
+  const imageArray = Object.values(products.imagesUrl);
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.backBttnCOntainer}>
@@ -22,10 +23,7 @@ export default function ProductScreen({ route }) {
       </View>
 
       <View style={styles.imageContainer}>
-        <Image
-          source={{ uri: products.imagesUrl.image1 }}
-          style={styles.image}
-        />
+        <ProductCarousel images={imageArray} />
       </View>
 
       <View style={styles.detailContainer}>

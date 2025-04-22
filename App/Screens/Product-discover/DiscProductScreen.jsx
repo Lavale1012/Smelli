@@ -9,6 +9,7 @@ import {
   Linking,
 } from "react-native";
 import BackButton from "../../components/BackButton";
+import ProductCarousel from "../../components/ProductCarousel";
 
 const screenHeight = Dimensions.get("window").height;
 
@@ -16,19 +17,16 @@ export default function DiscProductScreen({ route }) {
   const { products, brand } = route.params || {};
   console.log("Brand Color:", brand?.color);
   console.log("Brand SubColor:", brand?.subColor);
-
+  const imageArray = Object.values(products.imagesUrl);
   return (
-    <View style={{ flex: 1, backgroundColor: brand?.color || "#D9D7B6" }}>
+    <View style={{ flex: 1, backgroundColor: brand?.color || "#FDFBD4" }}>
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.backBttnCOntainer}>
           <BackButton />
         </View>
 
         <View style={styles.imageContainer}>
-          <Image
-            source={{ uri: products.imagesUrl.image1 }}
-            style={styles.image}
-          />
+          <ProductCarousel images={imageArray} />
         </View>
 
         <View style={styles.detailContainer}>
@@ -46,7 +44,7 @@ export default function DiscProductScreen({ route }) {
 
         <View
           style={[
-            { backgroundColor: brand?.subColor },
+            { backgroundColor: brand?.subColor || "#F3F1D4" },
             styles.descriptionWrapper,
           ]}
         >
@@ -57,7 +55,10 @@ export default function DiscProductScreen({ route }) {
         </View>
 
         <View
-          style={[{ backgroundColor: brand?.subColor }, styles.notesContainer]}
+          style={[
+            { backgroundColor: brand?.subColor || "#F3F1D4" },
+            styles.notesContainer,
+          ]}
         >
           <Text style={styles.notesTitle}>Notes</Text>
           <Text style={styles.notesText}>
@@ -73,7 +74,7 @@ export default function DiscProductScreen({ route }) {
 
         <View
           style={[
-            { backgroundColor: brand?.subColor },
+            { backgroundColor: brand?.subColor || "#F3F1D4" },
             styles.descriptionWrapper,
           ]}
         >
