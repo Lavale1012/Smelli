@@ -63,6 +63,13 @@ export const brands = [
     color: "#000000",
     subColor: "#616569",
   },
+  {
+    id: 7,
+    name: "Maison Margiela",
+    image: require("../../../assets/mason.jpg"),
+    color: "#ffffff",
+    subColor: "#ECECEC",
+  },
 ];
 const DiscoverScreen = () => {
   const [images, setImages] = useState([]);

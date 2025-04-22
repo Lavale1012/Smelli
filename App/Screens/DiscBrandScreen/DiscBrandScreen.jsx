@@ -19,7 +19,10 @@ const DiscBrandScreen = ({ route }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const URL = `https://fragrance-search-api.onrender.com/api/fragrances/brand?brand=${brand?.name}`;
+  const URL =
+    brand.name == "Show All"
+      ? `https://fragrance-search-api.onrender.com/api/fragrances?limit=19`
+      : `https://fragrance-search-api.onrender.com/api/fragrances/brand?brand=${brand?.name}`;
 
   useEffect(() => {
     const fetchProducts = async () => {
